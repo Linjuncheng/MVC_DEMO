@@ -1,0 +1,75 @@
+﻿@model InvoiceSystem.Models.AdminRegisterViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/bootstrap")
+@Styles.Render("~/Content/css")
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AdminRegisters</title>
+</head>
+<style>
+    body {
+        background-image: url("/img/bg.jpeg");
+    }
+</style>
+
+<body>
+
+    <div class="login-dark">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4 class="text-center">管理员注册系统</h4>
+                <hr />
+                <div class="illustration"><img src="~/favicon.ico" style="width: 100px; height: auto; padding-bottom: 30px" alt="柳州市富英华"></div>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <label>
+
+                        @Html.LabelFor(model => model.AdminTel, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.AdminTel, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.AdminTel, "", new { @class = "text-danger" })
+                        </div>
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        @Html.LabelFor(model => model.AdminPassword, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.AdminPassword, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.AdminPassword, "", new { @class = "text-danger" })
+                        </div>
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                        </div>
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12  text-center">
+                        <input type="submit" value="注册" class="btn btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>

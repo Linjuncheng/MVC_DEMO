@@ -1,0 +1,20 @@
+﻿@model InvoiceSystem.Models.LoginViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <form action="/Home/Login" method="post">
+        用户名：<input type="text" name="UserName" />
+        密码：<input type="password" name="Password" />
+        <button>登录</button>
+    </form>
+</body>
+</html>

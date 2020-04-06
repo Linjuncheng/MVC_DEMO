@@ -1,0 +1,58 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>注册成功</title>
+    <style>
+        div{
+            position:absolute; 
+            top:50%;           
+            left:50%;          
+            margin:-150px 0 0 -100px;    
+            width:300px;
+            height:200px;
+        }
+    </style>
+</head>
+<body>
+    @{
+        ViewBag.Title = "Success";
+    }
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<div>
+    <h2>注册成功</h2>
+    <span id="countTime"></span>&nbsp;<a href='javascript:goBack()'>返回注册页面</a>
+</div>
+<script type="text/javascript">
+    var second = 4;
+    //获取显示秒数的元素，通过定时器来更改秒数。
+    var message = document.getElementById("countTime");
+    function clock() {
+        if (second == 0) {
+            goTo();
+        }
+        else {
+            message.innerHTML = second-- + "秒后跳转到登录页面";
+            window.setTimeout(clock, 1000);
+        }
+    }
+    clock();
+    //通过window的location和history对象来控制网页的跳转。
+    function goTo() {
+        window.location.href = "/Home/Login";
+    }
+    function goBack() {
+        //   window.history.Back();
+        window.location.href = "/Home/Register";
+    }
+</script>
+</body>
+</html>

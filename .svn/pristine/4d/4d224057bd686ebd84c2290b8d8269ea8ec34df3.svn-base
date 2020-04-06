@@ -1,0 +1,120 @@
+﻿@using System.Web.Optimization
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 我的 ASP.NET 应用程序</title>
+    @Styles.Render("~/Content/css")
+
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <span class="navbar-sidebar-toggle" data-toggle="tooltip" data-placement="right" title=""><i class="fa fa-bars" aria-hidden="true"></i></span>
+                <a class="navbar-brand" href="#">FYH</a>
+            </div>
+
+            <div class="navbar-end">
+                <div class="dropdown dropdown-menu-right">
+                    <button type="button" class="btn btn-default dropdown-toggle glyphicon glyphicon-user center-block dropdown-menu-right" id="navbar-dropdownmenu" data-toggle="dropdown" style="margin-top: 10px">
+                        管理员
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">个人中心</a></li>
+                        <li>@Html.ActionLink("安全退出", "Login", "LoginRegister", new { area = "" }, new { @class = "" })</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="wrapper">
+        <aside class="sidebar-menu">
+            <ul class="menu-list">
+                <li class="menu-item actived">
+                    @Html.ActionLink("首页", "Index", "Home", new { area = "" }, new { @class = "" })
+                </li>
+                <li class="separator-20"></li>
+                <li class="menu-item">
+                    <a href="/Ticktes/Purchase"><i class="fa fa-cube" aria-hidden="true"></i>采购记录表</a>
+                    @*<ul class="sub-menu-list">
+                            <li class="sub-menu-item"><a href="#">页面</a></li>
+                            <li class="sub-menu-item"><a href="#">页面</a></li>
+                        </ul>*@
+                </li>
+                <li class="menu-item">
+                    <a href="/Ticktes/Invoice"><i class="fa fa-key" aria-hidden="true"></i>发票记录表</a>
+                    @*<ul class="sub-menu-list">
+                            <li class="sub-menu-item"><a href="#">页面</a></li>
+                            <li class="sub-menu-item"><a href="#">页面</a></li>
+                        </ul>*@
+                </li>
+                <li class="menu-item">
+                    <a href="/Ticktes/Material"><i class="fa fa-book" aria-hidden="true"></i>物料信息表</a>
+                    @*<ul class="sub-menu-list">
+                            <li class="sub-menu-item"><a href="#">页面</a></li>
+                            <li class="sub-menu-item"><a href="#">页面</a></li>
+                        </ul>*@
+                </li>
+                <li class="menu-item">
+                    <a href="/Ticktes/Supplier"><i class="fa fa-book" aria-hidden="true"></i>供应商信息表</a>
+                    @*<ul class="sub-menu-list">
+                            <li class="sub-menu-item"><a href="#">页面</a></li>
+                            <li class="sub-menu-item"><a href="#">页面</a></li>
+                        </ul>*@
+                </li>
+                <li class="menu-item">
+                    <a href="#"><i class="fa fa-tag" aria-hidden="true"></i>****<span class="badge">4</span></a>
+                    @*<ul class="sub-menu-list">
+                        <li class="sub-menu-item"><a href="#">页面</a></li>
+                        <li class="sub-menu-item"><a href="#">页面</a></li>
+                        <li class="sub-menu-item"><a href="#">页面</a></li>
+                        <li class="sub-menu-item"><a href="#">页面</a></li>
+                    </ul>*@
+                </li>
+                <li class="menu-item">
+                    <a href="javascript:void(0)"><i class="fa fa-list" aria-hidden="false"></i>查询表单</a>
+                    <ul class="sub-menu-list">
+                        <li class="sub-menu-item"><a href="/Student">二级菜单-1</a></li>
+                        <li class="sub-menu-item"><a href="/Ticktes/CheckList">二级菜单-2</a></li>
+                    </ul>
+                </li>
+
+                <li class="separator-30"></li>
+
+                <li class="menu-item">
+                    <a href="/LoginRegister/Login"><i class="fa fa-sign-out" aria-hidden="true"></i>安全退出</a>
+                </li>
+            </ul>
+        </aside>
+
+        <div class="main-container">
+            <div class="padding">
+                <div class="breadcrumb">
+                    <div class="container body-content">
+                        @RenderBody()
+                        <footer class="main-footer">
+                            <p>######################</p>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="scroll-to-top"><i class="fa fa-chevron-up fa-lg"></i></div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <script src="~/Scripts/daterangepicker.js"></script>
+    <script src="~/Scripts/moment.min.js"></script>
+    <script src="~/Scripts/main.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,59 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using DB.Model;
+using DB.Dal;
+using DB.IDal;
+
+namespace InvoiceSystem.Controllers
+{
+    public class TestController : Controller
+    {
+        // GET: Test
+        public ActionResult Index()
+        {
+            string ErrMsg = string.Empty;
+            I_AdminLogin u = new D_AdminLogin();
+            List<M_AdminLogin> l = new List<M_AdminLogin>();
+            M_AdminLogin m = new M_AdminLogin();
+
+            m.Password = "3";
+            m.Username = "3";
+            m.User_ID = 53330;
+            m.ID = 16;
+            l.Add(m);
+
+            m = new M_AdminLogin();
+            m.Password = "2";
+            m.Username = "2";
+            m.User_ID = 53330;
+            m.ID = 17;
+            l.Add(m);
+
+            m = new M_AdminLogin();
+            m.Password = "1";
+            m.Username = "1";
+            m.User_ID = 53330;
+            m.ID = 18;
+            l.Add(m);
+
+            List<int> i = new List<int>();
+            i.Add(16);
+            i.Add(17);
+            i.Add(18);
+
+            //if (u.Insert(m,ref ErrMsg) > -1)
+            //{
+
+            //}
+            //else
+            //{
+            //    return Content(ErrMsg);
+            //}
+            
+            return Json(u.Select(ref l,i, ref ErrMsg), JsonRequestBehavior.AllowGet);
+        }
+    }
+}

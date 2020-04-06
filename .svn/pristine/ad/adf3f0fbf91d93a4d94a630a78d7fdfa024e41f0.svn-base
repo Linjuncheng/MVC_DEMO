@@ -1,0 +1,64 @@
+﻿@model InvoiceSystem.Models.LoginViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/bootstrap")
+@Styles.Render("~/Content/css")
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <title>Login</title>
+</head>
+<body>
+    <style>
+        body {
+            background-image: url("/img/bg.jpeg");
+        }
+    </style>
+    <div class="login-dark">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4 class="text-center" style="color: #6f7a85">登录系统</h4>
+                <hr style="background-color: black"/>
+                <div class="illustration"><img src="~/favicon.ico" style="width: 150px;height: auto;padding-bottom: 30px;opacity:0.8"></div>
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <label>
+                        @Html.LabelFor(model => model.LoginTel, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.LoginTel, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.LoginTel, "", new { @class = "text-danger" })
+                        </div>
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12  text-center">
+                        <input type="submit" value="登录" class="btn btn btn-primary" />
+                        <a href="/LoginRegister/Register" style="position: absolute; bottom: 10px; right: 10px; color: #6f7a85;text-decoration:none">去注册</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>
